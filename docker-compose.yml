@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  dev:
+    image: potdig/pgrf2-layout-html
+    build:
+      context: .
+    volumes:
+      - ./src:/work/src
+      - ./graphics:/work/graphics
+    ports:
+      - 3100:3100
