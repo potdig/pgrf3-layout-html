@@ -1,17 +1,11 @@
 <template>
   <div>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
-    <p>This is background</p>
+    <BlinkBox></BlinkBox>
   </div>
 </template>
 
-<script>
+<script setup>
+import BlinkBox from './BlinkBox.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -19,6 +13,7 @@ div {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
+  z-index: -1;
 }
 
 p {
