@@ -1,6 +1,31 @@
 <template>
-  <div>
-    <BlinkBox></BlinkBox>
+  <div id="wrapper">
+    <div id="boxes">
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+      <BlinkBox></BlinkBox>
+    </div>
   </div>
 </template>
 
@@ -9,11 +34,17 @@ import BlinkBox from './BlinkBox.vue'
 </script>
 
 <style lang="scss" scoped>
-div {
+#wrapper {
   position: absolute;
+  width: 1920px;
+  height: 1080px;
+  z-index: -1;
+}
+
+#boxes {
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  z-index: -1;
 }
 
 p {

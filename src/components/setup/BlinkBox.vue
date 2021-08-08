@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="box"></div>
 </template>
 
 <script setup>
@@ -7,11 +7,11 @@
 </script>
 
 <style lang="scss" scoped>
-div {
-  margin: 16px;
-  width: 240px;
-  height: 240px;
-  background-color: gray;
+.box {
+  margin: 8px;
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
   border-radius: 16px;
 }
 </style>
