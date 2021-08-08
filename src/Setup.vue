@@ -1,6 +1,15 @@
 <template>
-  <div id="#app">
-    <background></background>
+  <background></background>
+  <div id="#setup">
+    <span>This is foreground</span>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
+    <p>This is foreground</p>
   </div>
 </template>
 
@@ -13,7 +22,7 @@ body {
   margin: 0;
 }
 
-#app {
+#setup {
   width: 1920px;
   height: 1080px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
