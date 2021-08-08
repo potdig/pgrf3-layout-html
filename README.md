@@ -1,11 +1,11 @@
 # Layout HTML Builder for PGRF2
 
-## Building
+## Build
 ```
-docker compose run --rm build
+npm run build
 ```
 
-## Testing
+## Test
 ```
 docker compose build
 docker compose up [-d] dev
