@@ -1,6 +1,6 @@
 <template>
   <background></background>
-  <div id="#setup">
+  <div id="setup">
     <span>This is foreground</span>
     <p>This is foreground</p>
     <p>This is foreground</p>
