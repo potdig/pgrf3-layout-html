@@ -4,17 +4,8 @@
     <Header></Header>
   </header>
   <main>
-    <!-- TODO: schedule -->
+    <Schedule></Schedule>
     <!-- TODO: tweet -->
-    <span>This is foreground</span>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
   </main>
   <footer>
     <Footer></Footer>
@@ -25,6 +16,7 @@
 import Background from './components/setup/Background.vue'
 import Header from './components/setup/Header.vue'
 import Footer from './components/setup/Footer.vue'
+import Schedule from './components/setup/Schedule.vue'
 </script>
 
 <style>
@@ -34,7 +26,6 @@ import Footer from './components/setup/Footer.vue'
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
@@ -45,6 +36,13 @@ header {
   align-items: center;
   height: 120px;
   padding: 0 48px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 64px;
 }
 
 footer {
