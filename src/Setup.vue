@@ -5,7 +5,7 @@
   </header>
   <main>
     <Schedule></Schedule>
-    <!-- TODO: tweet -->
+    <Tweet></Tweet>
   </main>
   <footer>
     <Footer></Footer>
@@ -17,6 +17,7 @@ import Background from './components/setup/Background.vue'
 import Header from './components/setup/Header.vue'
 import Footer from './components/setup/Footer.vue'
 import Schedule from './components/setup/Schedule.vue'
+import Tweet from './components/Tweet.vue'
 </script>
 
 <style>
@@ -26,7 +27,6 @@ import Schedule from './components/setup/Schedule.vue'
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
 }
 
 header {
