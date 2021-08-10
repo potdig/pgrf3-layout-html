@@ -8,7 +8,7 @@ npm run build
 ## Test
 ```
 docker compose build
-docker compose up [-d] dev
+docker compose up [-d]
 ```
 or
 ```
