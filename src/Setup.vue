@@ -1,5 +1,9 @@
 <template>
   <background></background>
+  <!-- TODO: header -->
+  <!-- TODO: schedule -->
+  <!-- TODO: tweet -->
+  <!-- TODO: footer -->
   <div id="setup">
     <span>This is foreground</span>
     <p>This is foreground</p>
