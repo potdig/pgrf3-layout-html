@@ -20,11 +20,11 @@ const duration = ref(Math.random() * (15 - 5) + 5)
 
 @keyframes fade-out {
   from {
-    opacity: 100%;
+    opacity: 1;
   }
 
   to {
-    opacity: 0%;
+    opacity: 0;
   }
 }
 </style>
