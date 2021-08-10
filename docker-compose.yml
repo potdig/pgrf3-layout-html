@@ -10,13 +10,3 @@ services:
       - ./graphics:/work/graphics
     ports:
       - 3100:3100
-  build:
-    image: potdig/pgrf2-layout-html
-    build: 
-      context: .
-    volumes:
-      - ./dist:/work/dist
-      - ./src:/work/src
-      - ./graphics:/work/graphics
-    command: ['npm', 'run', 'build']
-    
