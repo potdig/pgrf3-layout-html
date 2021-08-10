@@ -1,37 +1,47 @@
 <template>
-  <background></background>
-  <!-- TODO: header -->
-  <!-- TODO: schedule -->
-  <!-- TODO: tweet -->
-  <!-- TODO: footer -->
+  <Background></Background>
   <div id="setup">
-    <span>This is foreground</span>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
-    <p>This is foreground</p>
+    <header>
+      <Header></Header>
+    </header>
+    <main>
+      <!-- TODO: schedule -->
+      <!-- TODO: tweet -->
+      <span>This is foreground</span>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+      <p>This is foreground</p>
+    </main>
+    <footer>
+      <!-- TODO: footer -->
+    </footer>
   </div>
 </template>
 
 <script setup>
 import Background from './components/setup/Background.vue'
+import Header from './components/setup/Header.vue'
 </script>
 
 <style>
-body {
-  margin: 0;
-}
+@import '/src/assets/common.css';
 
 #setup {
-  width: 1920px;
-  height: 1080px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 120px;
+  padding: 0 48px;
 }
 </style>
