@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Nova+Mono&family=Staatliches&display=swap');
-
 body {
+  margin: 0;
+}
+
+#root {
   width: 1920px;
   height: 1080px;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
   background-image: url('/assets/pgrf/images/back.png');
   font-size: 18pt;
 }
