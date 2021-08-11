@@ -7,10 +7,14 @@
     <div id="sidebar">
       <Tweet></Tweet>
       <div id="infos">
-        <Info></Info>
-        <Info></Info>
-        <Info></Info>
-        <Info></Info>
+        <InfoBox label="Runner" value="RUNNER1" additionalValue="@runner_1"></InfoBox>
+        <InfoBox label="Commentator" value="COMMENTATOR1" additionalValue="@commentator_1"></InfoBox>
+        <InfoBox time label="EST">
+          <TimeValue value="23:45"></TimeValue>
+        </InfoBox>
+        <InfoBox time label="Current Time">
+          <TimeValue value="12:34" status="suspend"></TimeValue>
+        </InfoBox>
       </div>
     </div>
     <Video :width="1920 * 0.84" :height="1080 * 0.84"></Video>
@@ -25,7 +29,8 @@ import { ref } from 'vue'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
 import Tweet from './components/Tweet.vue'
-import Info from './components/game/Info.vue'
+import InfoBox from './components/game/InfoBox.vue'
+import TimeValue from './components/game/TimeValue.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
 </script>
