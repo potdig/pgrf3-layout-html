@@ -3,7 +3,14 @@
     <Header></Header>
   </header>
   <main>
-    <div id="info">
+    <div id="sidebar">
+      <Tweet></Tweet>
+      <div id="infos">
+        <Info></Info>
+        <Info></Info>
+        <Info></Info>
+        <Info></Info>
+      </div>
     </div>
     <Video :width="1920 * 0.84" :height="1080 * 0.84"></Video>
   </main>
@@ -15,6 +22,8 @@
 <script setup>
 import { ref } from 'vue'
 import Header from './components/game/Header.vue'
+import Tweet from './components/Tweet.vue'
+import Info from './components/game/Info.vue'
 import Video from './components/game/Video.vue'
 </script>
 
@@ -28,5 +37,21 @@ header {
   flex-direction: row;
   align-items: center;
   height: 100px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+#sidebar {
+  margin-right: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#infos {
+  margin-top: auto;
 }
 </style>
