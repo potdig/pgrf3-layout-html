@@ -8,6 +8,9 @@
 <script setup></script>
 
 <style lang="scss" scoped>
+div {
+  color: rgba($color: black, $alpha: 0.7);
+}
 #hashtag-guide {
   font-size: 1.2em;
   font-family: 'Staatliches', sans-serif;

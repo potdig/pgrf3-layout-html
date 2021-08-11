@@ -35,6 +35,7 @@ import Footer from './components/game/Footer.vue'
 @import "/src/assets/game.css";
 
 header {
+  margin : 0 16px;
   padding: 8px 24px;
   display: flex;
   flex-direction: row;
@@ -43,6 +44,7 @@ header {
 }
 
 main {
+  margin : 0 16px;
   display: flex;
   flex-direction: row;
 }
@@ -59,12 +61,12 @@ main {
 }
 
 footer {
+  margin : 0 16px;
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1em;
   line-height: 1em;
-  color: dimgray;
 }
 </style>
