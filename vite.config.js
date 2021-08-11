@@ -8,7 +8,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        setup: resolve(__dirname, 'graphics/setup/index.html')
+        setup: resolve(__dirname, 'graphics/setup/index.html'),
+        'full-hd': resolve(__dirname, 'graphics/full-hd/index.html')
       }
     }
   }
