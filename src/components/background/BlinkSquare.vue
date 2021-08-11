@@ -1,21 +1,23 @@
 <template>
-  <div class="box" :style="{ animationDuration: `${duration}s` }"></div>
+  <Square
+    class="animated"
+    :style="{ animationDuration: `${duration}s` }"
+  ></Square>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref, defineProps } from 'vue'
+import Square from './Square.vue'
 
+const props = defineProps({
+  animated: Boolean
+})
 const duration = ref(Math.random() * (15 - 5) + 5)
 </script>
 
 <style lang="scss" scoped>
-.box {
+.animated {
   animation: 5s linear infinite fade-out;
-  margin: 8px;
-  width: 200px;
-  height: 200px;
-  background-color: lightgray;
-  border-radius: 16px;
 }
 
 @keyframes fade-out {

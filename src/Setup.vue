@@ -1,5 +1,5 @@
 <template>
-  <Background></Background>
+  <Background animated></Background>
   <header>
     <Header></Header>
   </header>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import Background from './components/setup/Background.vue'
+import Background from './components/Background.vue'
 import Header from './components/setup/Header.vue'
 import Footer from './components/setup/Footer.vue'
 import Schedule from './components/setup/Schedule.vue'

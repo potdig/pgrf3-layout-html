@@ -1,16 +1,30 @@
 <template>
   <div id="wrapper">
     <div id="filter"></div>
-    <div id="boxes">
-      <BlinkBox v-for="i in [...Array(boxCount)].map((_, i) => i)" :key="i"></BlinkBox>
+    <div id="boxes" v-if="animated">
+      <BlinkSquare
+        v-for="i in [...Array(boxCount)].map((_, i) => i)"
+        :key="i"
+      ></BlinkSquare>
+    </div>
+    <div id="boxes" v-else>
+      <Square
+        v-for="i in [...Array(boxCount)].map((_, i) => i)"
+        :key="i"
+        :opacity="Math.random()"
+      ></Square>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import BlinkBox from './BlinkBox.vue'
+import { ref, defineProps } from 'vue'
+import BlinkSquare from './background/BlinkSquare.vue'
+import Square from './background/Square.vue'
 
+const props = defineProps({
+  animated: Boolean
+})
 const boxCount = ref(60)
 </script>
 

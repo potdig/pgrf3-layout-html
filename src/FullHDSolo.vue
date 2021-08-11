@@ -1,4 +1,5 @@
 <template>
+  <Background></Background>
   <header>
     <Header></Header>
   </header>
@@ -21,6 +22,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
 import Tweet from './components/Tweet.vue'
 import Info from './components/game/Info.vue'
