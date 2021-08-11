@@ -15,7 +15,7 @@
     <Video :width="1920 * 0.84" :height="1080 * 0.84"></Video>
   </main>
   <footer>
-    <!-- TODO footer -->
+    <Footer></Footer>
   </footer>
 </template>
 
@@ -25,6 +25,7 @@ import Header from './components/game/Header.vue'
 import Tweet from './components/Tweet.vue'
 import Info from './components/game/Info.vue'
 import Video from './components/game/Video.vue'
+import Footer from './components/game/Footer.vue'
 </script>
 
 <style lang="scss">
@@ -53,5 +54,15 @@ main {
 
 #infos {
   margin-top: auto;
+}
+
+footer {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1em;
+  line-height: 1em;
+  color: dimgray;
 }
 </style>
