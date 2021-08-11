@@ -1,6 +1,6 @@
 <template>
   <header>
-    <!-- TODO header -->
+    <Header></Header>
   </header>
   <main>
     <div id="info">
@@ -14,10 +14,19 @@
 
 <script setup>
 import { ref } from 'vue'
+import Header from './components/game/Header.vue'
 import Video from './components/game/Video.vue'
 </script>
 
 <style lang="scss">
 @import '/src/assets/common.css';
 @import "/src/assets/game.css";
+
+header {
+  padding: 8px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+}
 </style>
