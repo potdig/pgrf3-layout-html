@@ -1,6 +1,6 @@
 <template>
   <div class="info-box">
-    <span class="label">{{ label }}</span>
+    <span class="label" :class="{ dense }">{{ label }}</span>
     <slot>
       <span class="value" :class="{ time }">{{ value }}</span>
       <span class="additional-value">{{ additionalValue }}</span>
@@ -15,6 +15,7 @@ const props = defineProps({
   label: String,
   value: String,
   additionalValue: String,
+  dense: Boolean,
   time: Boolean
 })
 </script>
@@ -32,6 +33,10 @@ const props = defineProps({
   font-size: 1.2em;
   line-height: 1em;
   color: rgba(0, 0, 0, 70%);
+
+  &.dense {
+    position: absolute;
+  }
 }
 
 .value {
