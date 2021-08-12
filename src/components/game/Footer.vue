@@ -1,5 +1,5 @@
 <template>
-  <div id="hashtag-guide">Hashtag: <span class="hashtag">#PGRF</span></div>
+  <div id="hashtag-guide">Hashtag: <span class="hashtag">#PGRF2</span></div>
   <div id="next-title">
     <span class="label">Next Title: </span>タイトル2 | Category% | RUNNER2
   </div>

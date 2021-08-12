@@ -1,7 +1,7 @@
 <template>
   <div id="tweet" :style="{ width }">
     <div id="tweet-label" class="label">
-      TWEET WITH <span>#PGRF</span>:
+      TWEET WITH <span>#PGRF2</span>:
     </div>
     <div class="box">
       <div id="twitter-user">
