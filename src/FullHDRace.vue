@@ -10,27 +10,27 @@
         <InfoBox
           dense
           label="Runner I"
-          value="RUNNER1"
-          additionalValue="@runner_1"
-        ></InfoBox>
+        >
+          <TextValueWithSplit split="11:11" value="RUNNER1" additionalValue="@runner_1"></TextValueWithSplit>
+        </InfoBox>
       </div>
       <div class="runner">
         <Video :width="1920 * 0.48" :height="1080 * 0.48"></Video>
         <InfoBox
           dense
           label="Runner II"
-          value="RUNNER2"
-          additionalValue="@runner_2"
-        ></InfoBox>
+        >
+          <TextValueWithSplit split="" value="RUNNER2" additionalValue="@runner_2"></TextValueWithSplit>
+        </InfoBox>
       </div>
     </div>
     <div id="infos">
       <InfoBox
         dense
         label="Commentator"
-        value="COMMENTATOR1"
-        additionalValue="@commentator_1"
-      ></InfoBox>
+      >
+        <TextValue value="RUNNER1" additionalValue="@runner_1"></TextValue>
+      </InfoBox>
       <InfoBox dense time label="EST">
         <TimeValue value="23:45"></TimeValue>
       </InfoBox>
@@ -50,7 +50,9 @@ import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
 import Tweet from './components/Tweet.vue'
 import InfoBox from './components/game/InfoBox.vue'
+import TextValue from './components/game/TextValue.vue'
 import TimeValue from './components/game/TimeValue.vue'
+import TextValueWithSplit from './components/game/TextValueWithSplit.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
 </script>
