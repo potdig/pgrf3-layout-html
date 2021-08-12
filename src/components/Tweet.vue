@@ -1,5 +1,5 @@
 <template>
-  <div id="tweet">
+  <div id="tweet" :style="{ width }">
     <div id="tweet-label" class="label">
       TWEET WITH <span>#PGRF</span>:
     </div>
@@ -16,13 +16,21 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  width: {
+    type: String,
+    default: '420px'
+  }
+})
+</script>
 
 <style lang="scss" scoped>
 #tweet {
   display: flex;
   flex-direction: column;
-  width: 420px;
 }
 
 #tweet-label {
