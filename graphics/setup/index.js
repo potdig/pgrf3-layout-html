@@ -1,10 +1,5 @@
 import { createApp } from 'vue'
-import { createStore } from 'vuex'
 import Setup from '../../src/Setup.vue'
-import games from '../../src/store/games.js'
-
-const store = createStore({
-  modules: { games }
-})
+import store from '../../src/store/index.js'
 
 createApp(Setup).use(store).mount('#root')
