@@ -14,11 +14,18 @@ import { ref, computed, onMounted } from 'vue'
 import { DateTime } from 'luxon'
 
 const time = ref(DateTime.now())
-const formattedTIme = computed(() => time.value.toFormat('HH:mm'))
+const formattedTIme = computed(() => {
+  const t = time.value
+  if (t.second % 2 === 0) {
+    return t.toFormat('HH:mm')
+  } else {
+    return t.toFormat('HH mm')
+  }
+})
 onMounted(() => {
   setInterval(() => {
     time.value = DateTime.now()
-  }, 100)
+  }, 50)
 })
 
 </script>
