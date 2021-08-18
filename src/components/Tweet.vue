@@ -5,19 +5,19 @@
     </div>
     <div class="box">
       <div id="twitter-user">
-        <img id="twitter-icon" src="icon.png" alt="icon" />
-        <span id="twitter-id">@wwwwwwwwwwwwww</span>
+        <img id="twitter-icon" :src="tweet.icon" alt="icon" />
+        <span id="twitter-id">@{{ tweet.id }}</span>
       </div>
       <div id="tweet-text">
-        テストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイートテストツイート
-        #PGRF
+        {{ tweet.content }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { useStore } from 'vuex'
+import { computed, defineProps } from 'vue'
 
 const props = defineProps({
   width: {
@@ -25,6 +25,9 @@ const props = defineProps({
     default: '420px'
   }
 })
+
+const store = useStore()
+const tweet = computed(() => store.state.tweet)
 </script>
 
 <style lang="scss" scoped>
