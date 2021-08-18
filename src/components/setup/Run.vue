@@ -1,27 +1,27 @@
 <template>
   <div class="run" :class="{ 'later-than-next': !upNext }">
     <p id="up-next" class="label" v-if="upNext">UP NEXT:</p>
-    <div class="time" v-else>12:34~</div>
+    <div class="time" v-else>{{ run.startsAtOnSchedule() }}~</div>
     <div
       class="content-box"
       :class="{ next: upNext, 'later-than-next': !upNext }"
     >
-      <span class="title">タイトル</span>
+      <span class="title">{{ run.title }}</span>
       <div class="info">
         <div class="category">
-          <span class="label">Category: </span>Category%
+          <span class="label">Category: </span>{{ run.category }}
         </div>
         <div class="platform">
-          <span class="label">Platform: </span>PLATFORM
+          <span class="label">Platform: </span>{{ run.platform }}
         </div>
-        <div class="est"><span class="label">EST: </span>H:MM:SS</div>
+        <div class="est"><span class="label">EST: </span>{{ run.est }}</div>
       </div>
       <div class="info">
         <div class="runner">
-          <span class="label">Runner: </span>RUNNER1 / RUNNER2
+          <span class="label">Runner: </span>{{ run.joinedRunnerNames() }}
         </div>
         <div class="commentator">
-          <span class="label">Commentator: </span>COMMENTATOR1 / COMMENTATOR2
+          <span class="label">Commentator: </span>{{ run.joinedCommentatorNames() }}
         </div>
       </div>
     </div>
@@ -30,6 +30,7 @@
 
 <script setup>
 const props = defineProps({
+  run: Object,
   upNext: Boolean
 })
 </script>
