@@ -6,6 +6,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "luxon": "^2.0.2",
     "vue": "^3.0.5",
     "vuex": "^4.0.2"
   },
