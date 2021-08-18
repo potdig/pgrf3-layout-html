@@ -48,18 +48,18 @@ const tweet = computed(() => store.state.tweet)
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-bottom: 16px;
+  padding: 8px 0 12px;
   border-bottom: 1px solid gray;
   font-size: 0.9em;
   font-weight: bold;
 }
 
 #twitter-icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   margin-right: 16px;
   background-color: white;
-  border-radius: 24px;
+  border-radius: 28px;
 }
 
 #tweet-text {
