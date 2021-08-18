@@ -6,10 +6,22 @@
     src="/assets/pgrf/images/pgrf_logo_simple.png"
     alt="PGRF"
   />
-  <div id="now" class="time">12:34</div>
+  <div id="now" class="time">{{ formattedTIme }}</div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { DateTime } from 'luxon'
+
+const time = ref(DateTime.now())
+const formattedTIme = computed(() => time.value.toFormat('HH:mm'))
+onMounted(() => {
+  setInterval(() => {
+    time.value = DateTime.now()
+  }, 100)
+})
+
+</script>
 
 <style lang="scss" scoped>
 #logo-ome,
