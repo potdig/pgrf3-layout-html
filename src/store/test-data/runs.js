@@ -3,6 +3,7 @@ export default [
     title: 'ゲームタイトル1',
     category: 'Category1%',
     platform: 'Platform1',
+    startsAt: '2021/09/04 12:00:00',
     est: '00:10:00',
     runners: [
       {
@@ -28,6 +29,7 @@ export default [
     title: 'ゲームタイトル2',
     category: 'Category2%',
     platform: 'Platform2',
+    startsAt: '2021/09/04 12:25:00',
     est: '00:20:00',
     runners: [
       {
@@ -69,6 +71,7 @@ export default [
     title: 'わがまま☆フェアリー ミルモでポン! 対戦まほうだま',
     category: 'Taisen Puzzle-Dama (たいせんモード ノーマル)',
     platform: 'Platform3',
+    startsAt: '2021/09/04 12:55:00',
     est: '00:30:00',
     runners: [
       {
@@ -94,6 +97,7 @@ export default [
     title: 'ゲームタイトル4',
     category: 'Category4%',
     platform: 'Platform4',
+    startsAt: '2021/09/04 13:35:00',
     est: '00:40:00',
     runners: [
       {
