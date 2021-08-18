@@ -1,11 +1,17 @@
 <template>
   <div id="spotify">
-    <span>Now playing: Music Title / Artist Name</span>
+    <span>Now playing: {{ music.title }} / {{ music.artist }}</span>
   </div>
   <div id="hashtag-guide">hashtag: <span>#PGRF2</span></div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+const music = computed(() => store.state.spotify)
+</script>
 
 <style lang="scss" scoped>
 $spotifyHeight: 48px;
