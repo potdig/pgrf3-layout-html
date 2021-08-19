@@ -26,10 +26,10 @@
           additionalValue="@commentator_1"
         ></InfoBox>
         <InfoBox time label="EST">
-          <TimeValue value="23:45"></TimeValue>
+          <TimeValue :value="run.est"></TimeValue>
         </InfoBox>
         <InfoBox time label="Current Time">
-          <TimeValue value="12:34" status="suspend"></TimeValue>
+          <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
         </InfoBox>
       </div>
     </div>
@@ -53,6 +53,7 @@ import Footer from './components/game/Footer.vue'
 
 const store = useStore()
 const run = computed(() => store.getters.currentRun)
+const timer = computed(() => store.state.timer)
 </script>
 
 <style lang="scss">
