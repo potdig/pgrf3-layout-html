@@ -42,6 +42,7 @@ const props = defineProps({
 }
 
 .value-area {
-  align-self: flex-end;
+  width: 100%;
+  text-align: right;
 }
 </style>

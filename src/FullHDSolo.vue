@@ -60,7 +60,7 @@ onMounted(() => {
   runners.value.forEach(runner => {
     setInterval(() => {
       runner.rotateAccountTypes()
-    }, 1000)
+    }, 10000)
   })
 })
 </script>
