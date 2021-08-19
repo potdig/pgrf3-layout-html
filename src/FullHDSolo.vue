@@ -19,11 +19,11 @@
           :account="runner.currentAccount()"
         ></InfoBox>
         <InfoBox
-          v-for="( commentator, index ) in run.commentators"
+          v-for="( commentator, index ) in commentators"
           :key="index"
           label="Commentator"
           :value="commentator.name"
-          additionalValue="@commentator_1"
+          :account="commentator.currentAccount()"
         ></InfoBox>
         <InfoBox time label="EST">
           <TimeValue :value="run.est"></TimeValue>
@@ -55,6 +55,7 @@ const store = useStore()
 const run = computed(() => store.getters.currentRun)
 const timer = computed(() => store.state.timer)
 const runners = computed(() => store.state.runs.currentRunners)
+const commentators = computed(() => store.state.runs.currentCommentators)
 
 onMounted(() => {
   setInterval(() => {

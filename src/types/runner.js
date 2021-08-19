@@ -1,4 +1,4 @@
-class Runner {
+class Participant {
   constructor(runner) {
     this.id = runner.id
     this.name = runner.name
@@ -18,4 +18,4 @@ class Runner {
   }
 }
 
-export { Runner }
+export { Participant }

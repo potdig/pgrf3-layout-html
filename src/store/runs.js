@@ -1,11 +1,14 @@
 import testData from './test-data/runs.js'
 import { Run } from '../types/run.js'
-import { Runner } from '../types/runner.js'
+import { Participant } from '../types/runner.js'
 
 export default {
   state: () => ({
     runs: testData,
-    currentRunners: testData[0].runners.map(runner => new Runner(runner))
+    currentRunners: testData[0].runners
+      .map(runner => new Participant(runner)),
+    currentCommentators: testData[0].commentators
+      .map(commentator => new Participant(commentator))
   }),
   getters: {
     runsOnSchedule ({ runs }) {
@@ -16,9 +19,12 @@ export default {
     }
   },
   mutations: {
-    rotateAccounts ({ currentRunners }) {
+    rotateAccounts ({ currentRunners, currentCommentators }) {
       currentRunners.forEach(runner => {
         runner.rotateAccountTypes()
+      })
+      currentCommentators.forEach(commentator => {
+        commentator.rotateAccountTypes()
       })
     }
   }
