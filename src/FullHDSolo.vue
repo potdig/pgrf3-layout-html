@@ -1,14 +1,30 @@
 <template>
   <Background></Background>
   <header>
-    <Header :title="run.title" :category="run.category" :platform="run.platform"></Header>
+    <Header
+      :title="run.title"
+      :category="run.category"
+      :platform="run.platform"
+    ></Header>
   </header>
   <main>
     <div id="sidebar">
       <Tweet></Tweet>
       <div id="infos">
-        <InfoBox label="Runner" value="RUNNER1" additionalValue="@runner_1"></InfoBox>
-        <InfoBox label="Commentator" value="COMMENTATOR1" additionalValue="@commentator_1"></InfoBox>
+        <InfoBox
+          v-for="runner in run.runners"
+          :key="runner.id"
+          label="Runner"
+          :value="runner.name"
+          additionalValue="@runner_1"
+        ></InfoBox>
+        <InfoBox
+          v-for="( commentator, index ) in run.commentators"
+          :key="index"
+          label="Commentator"
+          :value="commentator.name"
+          additionalValue="@commentator_1"
+        ></InfoBox>
         <InfoBox time label="EST">
           <TimeValue value="23:45"></TimeValue>
         </InfoBox>
@@ -41,10 +57,10 @@ const run = computed(() => store.getters.currentRun)
 
 <style lang="scss">
 @import '/src/assets/common.css';
-@import "/src/assets/game.css";
+@import '/src/assets/game.css';
 
 header {
-  margin : 0 16px;
+  margin: 0 16px;
   padding: 8px 24px;
   display: flex;
   flex-direction: row;
@@ -53,7 +69,7 @@ header {
 }
 
 main {
-  margin : 0 16px;
+  margin: 0 16px;
   display: flex;
   flex-direction: row;
 }
@@ -70,7 +86,7 @@ main {
 }
 
 footer {
-  margin : 0 16px;
+  margin: 0 16px;
   flex-grow: 1;
   display: flex;
   align-items: center;
