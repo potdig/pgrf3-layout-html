@@ -54,14 +54,12 @@ import Footer from './components/game/Footer.vue'
 const store = useStore()
 const run = computed(() => store.getters.currentRun)
 const timer = computed(() => store.state.timer)
-const runners = ref(run.value.runners)
+const runners = computed(() => store.state.runs.currentRunners)
 
 onMounted(() => {
-  runners.value.forEach(runner => {
-    setInterval(() => {
-      runner.rotateAccountTypes()
-    }, 10000)
-  })
+  setInterval(() => {
+    store.commit('rotateAccounts')
+  }, 10000)
 })
 </script>
 
