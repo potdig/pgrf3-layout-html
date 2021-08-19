@@ -8,6 +8,9 @@ export default {
   getters: {
     runsOnSchedule ({ runs }) {
       return runs.slice(0, 3).map(run => new Run(run))
+    },
+    currentRun ({ runs }) {
+      return new Run(runs[0])
     }
   }
 }

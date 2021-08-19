@@ -1,7 +1,7 @@
 <template>
   <Background></Background>
   <header>
-    <Header></Header>
+    <Header :title="run.title" :category="run.category" :platform="run.platform"></Header>
   </header>
   <main>
     <div id="sidebar">
@@ -25,7 +25,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
 import Tweet from './components/Tweet.vue'
@@ -33,6 +34,9 @@ import InfoBox from './components/game/InfoBox.vue'
 import TimeValue from './components/game/TimeValue.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
+
+const store = useStore()
+const run = computed(() => store.getters.currentRun)
 </script>
 
 <style lang="scss">

@@ -1,13 +1,19 @@
 <template>
   <img id="logo" src="/assets/pgrf/images/pgrf_logo_simple.png" />
   <div id="title">
-    <p id="game-title">タイトル1</p>
-    <p id="category-platform">Category% - PLATFORM</p>
-    <p id="platform"></p>
+    <p id="game-title">{{ title }}</p>
+    <p id="category-platform">{{ category }} - {{ platform }}</p>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue'
+const props = defineProps({
+  title: String,
+  category: String,
+  platform: String
+})
+</script>
 
 <style lang="scss" scoped>
 #logo {
