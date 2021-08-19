@@ -12,11 +12,11 @@
       <Tweet></Tweet>
       <div id="infos">
         <InfoBox
-          v-for="runner in run.runners"
+          v-for="runner in runners"
           :key="runner.id"
           label="Runner"
           :value="runner.name"
-          additionalValue="@runner_1"
+          :account="runner.currentAccount()"
         ></InfoBox>
         <InfoBox
           v-for="( commentator, index ) in run.commentators"
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
@@ -54,6 +54,15 @@ import Footer from './components/game/Footer.vue'
 const store = useStore()
 const run = computed(() => store.getters.currentRun)
 const timer = computed(() => store.state.timer)
+const runners = ref(run.value.runners)
+
+onMounted(() => {
+  runners.value.forEach(runner => {
+    setInterval(() => {
+      runner.rotateAccountTypes()
+    }, 1000)
+  })
+})
 </script>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
     <span class="label" :class="{ dense }">{{ label }}</span>
     <div class="value-area">
       <slot>
-        <TextValue :value="value" :additionalValue="additionalValue"></TextValue>
+        <TextValue :value="value" :account="account"></TextValue>
       </slot>
     </div>
   </div>
@@ -16,7 +16,7 @@ import TextValue from './TextValue.vue'
 const props = defineProps({
   label: String,
   value: String,
-  additionalValue: String,
+  account: Object,
   dense: Boolean,
   time: Boolean
 })
