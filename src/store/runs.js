@@ -14,8 +14,15 @@ export default {
     runsOnSchedule ({ runs }) {
       return runs.slice(0, 3).map(run => new Run(run))
     },
-    currentRun ({ runs }) {
-      return new Run(runs[0])
+    currentEst ({ runs }) {
+      return runs[0].est
+    },
+    headerInfo ({ runs }) {
+      return {
+        title: runs[0].title,
+        category: runs[0].category,
+        platform: runs[0].platform
+      }
     }
   },
   mutations: {

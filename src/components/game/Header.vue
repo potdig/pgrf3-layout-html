@@ -1,18 +1,17 @@
 <template>
   <img id="logo" src="/assets/pgrf/images/pgrf_logo_simple.png" />
   <div id="title">
-    <p id="game-title">{{ title }}</p>
-    <p id="category-platform">{{ category }} - {{ platform }}</p>
+    <p id="game-title">{{ info.title }}</p>
+    <p id="category-platform">{{ info.category }} - {{ info.platform }}</p>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
-const props = defineProps({
-  title: String,
-  category: String,
-  platform: String
-})
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+const info = computed(() => store.getters.headerInfo)
 </script>
 
 <style lang="scss" scoped>

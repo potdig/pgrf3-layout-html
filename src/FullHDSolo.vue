@@ -1,11 +1,7 @@
 <template>
   <Background></Background>
   <header>
-    <Header
-      :title="run.title"
-      :category="run.category"
-      :platform="run.platform"
-    ></Header>
+    <Header></Header>
   </header>
   <main>
     <div id="sidebar">
@@ -26,7 +22,7 @@
           :account="commentator.currentAccount()"
         ></InfoBox>
         <InfoBox time label="EST">
-          <TimeValue :value="run.est"></TimeValue>
+          <TimeValue :value="est"></TimeValue>
         </InfoBox>
         <InfoBox time label="Current Time">
           <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
@@ -52,7 +48,7 @@ import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
 
 const store = useStore()
-const run = computed(() => store.getters.currentRun)
+const est = computed(() => store.getters.currentEst)
 const timer = computed(() => store.state.timer)
 const runners = computed(() => store.state.runs.currentRunners)
 const commentators = computed(() => store.state.runs.currentCommentators)
