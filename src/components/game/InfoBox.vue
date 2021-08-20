@@ -24,6 +24,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .info-box {
+  width: 100%;
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid gray;
