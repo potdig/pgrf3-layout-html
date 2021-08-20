@@ -27,18 +27,18 @@
       </div>
     </div>
     <div id="others">
-      <div id="infos">
-        <InfoBox v-for="( commentator, index ) in commentators" :key="index" dense label="Commentator">
+      <div id="commentators">
+        <InfoBox v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
           <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
         </InfoBox>
-        <div id="times">
-          <InfoBox dense time label="EST">
-            <TimeValue :value="est"></TimeValue>
-          </InfoBox>
-          <InfoBox dense time label="Current Time">
-            <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
-          </InfoBox>
-        </div>
+      </div>
+      <div id="times">
+        <InfoBox time label="EST">
+          <TimeValue :value="est"></TimeValue>
+        </InfoBox>
+        <InfoBox time label="Current Time">
+          <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
+        </InfoBox>
       </div>
       <Tweet width="40%"></Tweet>
     </div>
@@ -107,19 +107,24 @@ main {
 }
 
 #others {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-#infos {
+#commentators{
   width: 40%;
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 2%;
+}
 
-  #times {
-    display: flex;
-    gap: 12px;
-  }
+#times {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 footer {
