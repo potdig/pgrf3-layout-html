@@ -11,5 +11,17 @@ export default {
       const split = splits.find(split => id === split.id)
       return split ? split.time : ''
     }
+  },
+  mutations: {
+    setTimer (state, timer) {
+      state.time = timer.time
+      state.status = timer.status
+      state.splits = timer.split
+    }
+  },
+  actions: {
+    setTimer ({ commit }, timer) {
+      commit('setTimer', timer)
+    }
   }
 }

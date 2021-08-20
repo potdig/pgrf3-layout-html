@@ -36,6 +36,13 @@ export default {
     }
   },
   mutations: {
+    setRuns (state, runs) {
+      state.runs = runs
+      state.currentRunners = runs[0].runners
+        .map(runner => new Participant(runner))
+      state.currentCommentators = runs[0].commentators
+        .map(commentator => new Participant(commentator))
+    },
     rotateAccounts ({ currentRunners, currentCommentators }) {
       currentRunners.forEach(runner => {
         runner.rotateAccountTypes()
@@ -43,6 +50,11 @@ export default {
       currentCommentators.forEach(commentator => {
         commentator.rotateAccountTypes()
       })
+    }
+  },
+  actions: {
+    setRuns ({ commit }, runs) {
+      commit('setRuns', runs)
     }
   }
 }
