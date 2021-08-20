@@ -17,3 +17,5 @@ npm run dev
 
 ### URLs
 * `http://localhost:3100/graphics/setup/`
+* `http://localhost:3100/graphics/full-hd-solo/`
+* `http://localhost:3100/graphics/full-hd-race/`
