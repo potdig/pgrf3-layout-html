@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
