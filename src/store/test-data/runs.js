@@ -61,8 +61,15 @@ export default [
       {
         name: 'コメンテータC',
         accounts: {
-          twitch: 'commentatorB',
+          twitch: 'commentatorC',
           twitter: 'commentatorC'
+        }
+      },
+      {
+        name: 'コメンテータX',
+        accounts: {
+          twitch: 'commentatorX',
+          youtube: 'commentatorX'
         }
       }
     ]
