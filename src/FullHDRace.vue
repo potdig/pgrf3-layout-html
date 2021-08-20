@@ -13,6 +13,7 @@
             :account="runners[0].currentAccount()"
           ></TextValue>
         </InfoBox>
+        <Split :id="1"></Split>
       </div>
       <div class="runner">
         <Video :width="1920 * 0.48" :height="1080 * 0.48"></Video>
@@ -22,6 +23,7 @@
             :account="runners[1].currentAccount()"
           ></TextValue>
         </InfoBox>
+        <Split :id="2"></Split>
       </div>
     </div>
     <div id="others">
@@ -54,6 +56,7 @@ import Header from './components/game/Header.vue'
 import InfoBox from './components/game/InfoBox.vue'
 import TextValue from './components/game/TextValue.vue'
 import TimeValue from './components/game/TimeValue.vue'
+import Split from './components/game/Split.vue'
 import Video from './components/game/Video.vue'
 import Tweet from './components/Tweet.vue'
 import Footer from './components/game/Footer.vue'
