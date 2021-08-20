@@ -55,7 +55,7 @@ const commentators = computed(() => store.state.runs.currentCommentators)
 
 onMounted(() => {
   setInterval(() => {
-    store.commit('rotateAccounts')
+    store.dispatch('rotateAccounts')
   }, 10000)
 })
 </script>

@@ -55,6 +55,9 @@ export default {
   actions: {
     setRuns ({ commit }, runs) {
       commit('setRuns', runs)
+    },
+    rotateAccounts ({ commit }) {
+      commit('rotateAccounts')
     }
   }
 }
