@@ -1,11 +1,17 @@
 <template>
   <div id="hashtag-guide">Hashtag: <span class="hashtag">#PGRF2</span></div>
-  <div id="next-title">
-    <span class="label">Next Title: </span>タイトル2 | Category% | RUNNER2
+  <div id="next-title" v-if="info">
+    <span class="label">Next Title: </span>{{ info.title }} | {{ info.category }}
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+const info = computed(() => store.getters.footerInfo)
+</script>
 
 <style lang="scss" scoped>
 div {

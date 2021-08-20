@@ -23,6 +23,16 @@ export default {
         category: runs[0].category,
         platform: runs[0].platform
       }
+    },
+    footerInfo ({ runs }) {
+      if (runs.length > 1) {
+        return {
+          title: runs[1].title,
+          category: runs[1].category
+        }
+      } else {
+        return undefined
+      }
     }
   },
   mutations: {
