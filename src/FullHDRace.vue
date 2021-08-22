@@ -6,7 +6,7 @@
   <main>
     <div id="runners">
       <div class="runner">
-        <Video :width="1920 * 0.48" :height="1080 * 0.48"></Video>
+        <Video :style="{ width, height }"></Video>
         <InfoBox dense label="Runner I">
           <TextValue
             :value="runners[0].name"
@@ -16,7 +16,7 @@
         <Split :id="1"></Split>
       </div>
       <div class="runner">
-        <Video :width="1920 * 0.48" :height="1080 * 0.48"></Video>
+        <Video :style="{ width, height }"></Video>
         <InfoBox dense label="Runner II">
           <TextValue
             :value="runners[1].name"
@@ -40,7 +40,7 @@
           <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
         </InfoBox>
       </div>
-      <Tweet width="40%"></Tweet>
+      <Tweet from="right" small></Tweet>
     </div>
   </main>
   <footer>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
@@ -60,6 +60,9 @@ import Split from './components/game/Split.vue'
 import Video from './components/game/Video.vue'
 import Tweet from './components/Tweet.vue'
 import Footer from './components/game/Footer.vue'
+
+const width = ref(`${1920 * 0.48}px`)
+const height = ref(`${1080 * 0.48}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -108,14 +111,13 @@ main {
 
 #others {
   flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 32px;
   align-items: flex-end;
 }
 
 #commentators{
-  width: 40%;
   display: grid;
   grid-template-columns: 49% 49%;
   gap: 2%;
