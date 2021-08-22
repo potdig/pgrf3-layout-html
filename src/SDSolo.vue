@@ -68,8 +68,10 @@ onMounted(() => {
 @import '/src/assets/common.css';
 @import '/src/assets/game.css';
 
+$marginX: 64px;
+
 header {
-  margin: 0 16px;
+  margin: 0 $marginX;
   padding: 8px 24px;
   display: flex;
   flex-direction: row;
@@ -78,12 +80,12 @@ header {
 }
 
 main {
-  margin: 0 16px;
+  margin: 0 $marginX;
   display: grid;
 }
 
 #sidebar {
-  margin-right: 16px;
+  width: 480px;
   display: flex;
   flex-direction: column;
 }
@@ -93,7 +95,7 @@ main {
 }
 
 footer {
-  margin: 0 16px;
+  margin: 0 $marginX;
   flex-grow: 1;
   display: flex;
   align-items: center;
