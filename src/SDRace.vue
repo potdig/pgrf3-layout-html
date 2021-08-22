@@ -61,8 +61,8 @@ import Video from './components/game/Video.vue'
 import Tweet from './components/Tweet.vue'
 import Footer from './components/game/Footer.vue'
 
-const width = ref(`${1920 * 0.48}px`)
-const height = ref(`${1080 * 0.48}px`)
+const width = ref(`${1920 * 0.4}px`)
+const height = ref(`${1440 * 0.4}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -82,8 +82,10 @@ onMounted(() => {
 @import '/src/assets/common.css';
 @import '/src/assets/game.css';
 
+$marginX: 64px;
+
 header {
-  margin: 0 16px;
+  margin: 0 $marginX;
   padding: 8px 24px;
   display: flex;
   flex-direction: row;
@@ -93,7 +95,7 @@ header {
 
 main {
   flex-grow: 1;
-  margin: 0 16px;
+  margin: 0 $marginX;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -102,7 +104,7 @@ main {
 #runners {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .runner {
@@ -133,7 +135,7 @@ main {
 
 footer {
   height: 2em;
-  margin: 0 16px;
+  margin: 0 $marginX;
   display: flex;
   align-items: center;
   justify-content: space-between;
