@@ -1,18 +1,22 @@
 <template>
-  <div id="tweet" :style="{ width }">
-    <div id="tweet-label" class="label">
-      TWEET WITH <span>#PGRF2</span>:
-    </div>
-    <div class="box">
-      <div id="twitter-user">
-        <img id="twitter-icon" :src="tweet.icon" alt="icon" />
-        <span id="twitter-id">@{{ tweet.id }}</span>
+  <transition name="slide">
+    <div id="tweet-wrapper" v-if="tweet">
+      <div id="tweet" v-if="tweet">
+        <div id="tweet-label" class="label">
+          TWEET WITH <span>#PGRF2</span>:
+        </div>
+        <div class="box">
+          <div id="twitter-user">
+            <img id="twitter-icon" :src="tweet.icon" alt="icon" />
+            <span id="twitter-id">@{{ tweet.id }}</span>
+          </div>
+          <div id="tweet-text">
+            {{ tweet.content }}
+          </div>
+        </div>
       </div>
-      <div id="tweet-text">
-        {{ tweet.content }}
-      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
@@ -27,10 +31,15 @@ const props = defineProps({
 })
 
 const store = useStore()
-const tweet = computed(() => store.state.tweet)
+const tweet = computed(() => store.getters.tweet)
 </script>
 
 <style lang="scss" scoped>
+#tweet-wrapper {
+  overflow: hidden;
+  border-left: 1px solid rgba($color: #CCCCCC, $alpha: 0);
+}
+
 #tweet {
   display: flex;
   flex-direction: column;
@@ -65,5 +74,47 @@ const tweet = computed(() => store.state.tweet)
 #tweet-text {
   font-size: 0.9em;
   padding-top: 8px;
+}
+
+$duration: 1s;
+
+.slide-enter-active {
+  animation: border $duration ease-out;
+
+  #tweet {
+    animation: slide $duration ease-out;
+  }
+}
+
+.slide-leave-active {
+  animation: border $duration ease-out;
+
+  #tweet {
+    animation: slide reverse $duration ease-in;
+  }
+}
+
+@keyframes slide {
+  0%, 10% {
+    transform: translateX(-100%);
+  }
+  90%, 100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes border {
+  0% {
+    border-color: rgba($color: #CCCCCC, $alpha: 0);
+  }
+  10% {
+    border-color: rgba($color: #CCCCCC, $alpha: 1);
+  }
+  90% {
+    border-color: rgba($color: #CCCCCC, $alpha: 1);
+  }
+  100% {
+    border-color: rgba($color: #CCCCCC, $alpha: 0);
+  }
 }
 </style>
