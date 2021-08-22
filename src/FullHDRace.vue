@@ -37,7 +37,7 @@
           <TimeValue :value="est"></TimeValue>
         </InfoBox>
         <InfoBox time label="Current Time">
-          <TimeValue :value="timer.time" :status="timer.status"></TimeValue>
+          <TimeValue :value="time" :status="timerStatus"></TimeValue>
         </InfoBox>
       </div>
       <Tweet from="right" small></Tweet>
@@ -66,7 +66,8 @@ const height = ref(`${1080 * 0.48}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
-const timer = computed(() => store.state.timer)
+const time = computed(() => store.getters.formattedTime)
+const timerStatus = computed(() => store.state.timer.status)
 const runners = computed(() => store.state.runs.currentRunners)
 const commentators = computed(() => store.state.runs.currentCommentators)
 
