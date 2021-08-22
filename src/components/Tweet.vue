@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide">
+  <transition :name="`slide-from-${from}`">
     <div id="tweet-wrapper" v-if="tweet">
       <div id="tweet" v-if="tweet">
         <div id="tweet-label" class="label">
@@ -30,6 +30,10 @@ const props = defineProps({
   },
   small: {
     type: Boolean
+  },
+  from: {
+    type: String,
+    default: 'left'
   }
 })
 
@@ -40,7 +44,6 @@ const tweet = computed(() => store.getters.tweet)
 <style lang="scss" scoped>
 #tweet-wrapper {
   overflow: hidden;
-  border-left: 1px solid rgba($color: #CCCCCC, $alpha: 0);
 }
 
 #tweet {
@@ -85,25 +88,54 @@ const tweet = computed(() => store.getters.tweet)
 
 $duration: 1s;
 
-.slide-enter-active {
+.slide-from-left-enter-active {
+  border-left: 1px solid;
   animation: border $duration ease-out;
 
   #tweet {
-    animation: slide $duration ease-out;
+    animation: slide-from-left $duration ease-out;
   }
 }
 
-.slide-leave-active {
+.slide-from-left-leave-active {
+  border-left: 1px solid;
   animation: border $duration ease-out;
 
   #tweet {
-    animation: slide reverse $duration ease-in;
+    animation: slide-from-left reverse $duration ease-in;
   }
 }
 
-@keyframes slide {
+.slide-from-right-enter-active {
+  border-right: 1px solid;
+  animation: border $duration ease-out;
+
+  #tweet {
+    animation: slide-from-right $duration ease-out;
+  }
+}
+
+.slide-from-right-leave-active {
+  border-right: 1px solid;
+  animation: border $duration ease-out;
+
+  #tweet {
+    animation: slide-from-right reverse $duration ease-in;
+  }
+}
+
+@keyframes slide-from-left {
   0%, 10% {
     transform: translateX(-100%);
+  }
+  90%, 100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-right {
+  0%, 10% {
+    transform: translateX(100%);
   }
   90%, 100% {
     transform: translateX(0);
