@@ -114,12 +114,13 @@ main {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 32px;
-  align-items: flex-end;
+  align-items: end;
 }
 
 #commentators{
   display: grid;
-  grid-template-columns: 49% 49%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 2%;
 }
 
