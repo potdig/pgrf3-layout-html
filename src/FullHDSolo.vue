@@ -3,7 +3,7 @@
   <header>
     <Header></Header>
   </header>
-  <main>
+  <main :style="{ gridTemplateColumns: `1fr ${width}` }">
     <div id="sidebar">
       <Tweet></Tweet>
       <div id="infos">
@@ -29,7 +29,7 @@
         </InfoBox>
       </div>
     </div>
-    <Video :width="1920 * 0.84" :height="1080 * 0.84"></Video>
+    <Video :style="{ width, height }"></Video>
   </main>
   <footer>
     <Footer></Footer>
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 import Background from './components/Background.vue'
 import Header from './components/game/Header.vue'
@@ -46,6 +46,9 @@ import InfoBox from './components/game/InfoBox.vue'
 import TimeValue from './components/game/TimeValue.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
+
+const width = ref(`${1920 * 0.84}px`)
+const height = ref(`${1080 * 0.84}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -75,13 +78,11 @@ header {
 
 main {
   margin: 0 16px;
-  display: flex;
-  flex-direction: row;
+  display: grid;
 }
 
 #sidebar {
   margin-right: 16px;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }

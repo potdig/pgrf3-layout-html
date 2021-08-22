@@ -1,13 +1,6 @@
 <template>
-  <div :style="{ width: `${width}px`, height: `${height}px` }"></div>
+  <div></div>
 </template>
-
-<script setup>
-const props = defineProps({
-  width: Number,
-  height: Number
-})
-</script>
 
 <style lang="scss" scoped>
 div {
