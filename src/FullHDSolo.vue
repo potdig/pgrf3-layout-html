@@ -5,7 +5,7 @@
   </header>
   <main :style="{ gridTemplateColumns: `1fr ${width}` }">
     <div id="sidebar">
-      <Tweet></Tweet>
+      <Tweet small></Tweet>
       <div id="infos">
         <InfoBox
           v-for="runner in runners"

@@ -10,7 +10,7 @@
             <img id="twitter-icon" :src="tweet.icon" alt="icon" />
             <span id="twitter-id">@{{ tweet.id }}</span>
           </div>
-          <div id="tweet-text">
+          <div id="tweet-text" :class="{ small }">
             {{ tweet.content }}
           </div>
         </div>
@@ -20,13 +20,16 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
 import { computed, defineProps } from 'vue'
+import { useStore } from 'vuex'
 
 const props = defineProps({
   width: {
     type: String,
     default: '420px'
+  },
+  small: {
+    type: Boolean
   }
 })
 
@@ -74,6 +77,10 @@ const tweet = computed(() => store.getters.tweet)
 #tweet-text {
   font-size: 0.9em;
   padding-top: 8px;
+
+  &.small {
+    font-size: 0.75em;
+  }
 }
 
 $duration: 1s;
