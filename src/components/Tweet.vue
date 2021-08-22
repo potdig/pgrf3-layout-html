@@ -87,40 +87,42 @@ const tweet = computed(() => store.getters.tweet)
 }
 
 $duration: 1s;
+$easeOutCirc: cubic-bezier(0, 0.55, 0.45, 1);
+$easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
 
 .slide-from-left-enter-active {
   border-left: 1px solid;
-  animation: border $duration ease-out;
+  animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-left $duration ease-out;
+    animation: slide-from-left $duration $easeOutCirc;
   }
 }
 
 .slide-from-left-leave-active {
   border-left: 1px solid;
-  animation: border $duration ease-out;
+  animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-left reverse $duration ease-in;
+    animation: slide-from-left reverse $duration $easeInCirc;
   }
 }
 
 .slide-from-right-enter-active {
   border-right: 1px solid;
-  animation: border $duration ease-out;
+  animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-right $duration ease-out;
+    animation: slide-from-right $duration $easeOutCirc;
   }
 }
 
 .slide-from-right-leave-active {
   border-right: 1px solid;
-  animation: border $duration ease-out;
+  animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-right reverse $duration ease-in;
+    animation: slide-from-right reverse $duration $easeInCirc;
   }
 }
 
