@@ -17,13 +17,13 @@
       </div>
       <div class="runner">
         <Video :style="{ width, height }"></Video>
-        <InfoBox dense label="Runner II">
+        <InfoBox dense label="Runner II" v-if="runners[1]">
           <TextValue
             :value="runners[1].name"
             :account="runners[1].currentAccount()"
           ></TextValue>
         </InfoBox>
-        <Split :id="2"></Split>
+        <Split :id="2" v-if="runners[1]"></Split>
       </div>
     </div>
     <div id="others">
