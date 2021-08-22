@@ -32,5 +32,16 @@ const statusClass = computed(
 
 .time.complete {
   color: rgb(0, 65, 255);
+  animation: blink 1s 3 linear;
+}
+
+@keyframes blink {
+  0%, 49.999%, 100% {
+    opacity: 1;
+  }
+
+  50%, 99.999% {
+    opacity: 0;
+  }
 }
 </style>
