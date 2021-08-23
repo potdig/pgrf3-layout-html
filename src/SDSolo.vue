@@ -3,7 +3,7 @@
   <header>
     <Header></Header>
   </header>
-  <main :style="{ gridTemplateColumns: `1fr ${width}` }">
+  <main>
     <div id="sidebar">
       <Tweet small></Tweet>
       <div id="infos">
@@ -47,8 +47,8 @@ import TimeValue from './components/game/TimeValue.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
 
-const width = ref(`${1920 * 0.62}px`)
-const height = ref(`${1440 * 0.62}px`)
+const width = ref(`${1920 * 0.64}px`)
+const height = ref(`${1440 * 0.64}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -81,11 +81,12 @@ header {
 
 main {
   margin: 0 $marginX;
-  display: grid;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #sidebar {
-  width: 480px;
+  width: 420px;
   display: flex;
   flex-direction: column;
 }
