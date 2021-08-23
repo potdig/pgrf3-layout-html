@@ -47,8 +47,9 @@ import TimeValue from './components/game/TimeValue.vue'
 import Video from './components/game/Video.vue'
 import Footer from './components/game/Footer.vue'
 
-const width = ref(`${1920 * 0.62}px`)
-const height = ref(`${1440 * 0.62}px`)
+// 10:9
+const width = ref(`${1600 * 0.63}px`)
+const height = ref(`${1440 * 0.63}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -81,7 +82,8 @@ header {
 
 main {
   margin: 0 $marginX;
-  display: grid;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #sidebar {
