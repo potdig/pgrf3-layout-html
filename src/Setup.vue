@@ -5,7 +5,7 @@
   </header>
   <main>
     <Schedule></Schedule>
-    <Tweet></Tweet>
+    <Tweet style="width: 480px"></Tweet>
   </main>
   <footer>
     <Footer></Footer>
