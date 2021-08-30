@@ -13,7 +13,7 @@
             :account="runners[0].currentAccount()"
           ></TextValue>
         </InfoBox>
-        <Split :id="1"></Split>
+        <Split :id="runners[0].id"></Split>
       </div>
       <div class="runner">
         <Video :style="{ width, height }"></Video>
@@ -23,7 +23,7 @@
             :account="runners[1].currentAccount()"
           ></TextValue>
         </InfoBox>
-        <Split :id="2" v-if="runners[1]"></Split>
+        <Split :id="runners[1].id" v-if="runners[1]"></Split>
       </div>
     </div>
     <div id="others">
