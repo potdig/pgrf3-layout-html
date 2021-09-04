@@ -4,6 +4,16 @@ export default {
     title: testData.title,
     artist: testData.artist
   }),
+  getters: {
+    shortSpotifyInfo({ title, artist}) {
+      const wholeInfo = `${title} / ${artist}`
+      if (wholeInfo.length > 80) {
+        return `${wholeInfo.substring(0, 80)}...`
+      } else {
+        return wholeInfo
+      }
+    }
+  },
   mutations: {
     setMusic (state, music) {
       state.title = music.title
