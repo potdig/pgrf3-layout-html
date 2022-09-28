@@ -2,7 +2,7 @@
   <div id="spotify">
     <span>Now playing: {{ musicInfo }}</span>
   </div>
-  <div id="hashtag-guide">hashtag: <span>#PGRF2</span></div>
+  <div id="hashtag-guide">hashtag: <span>#PGRF3</span></div>
 </template>
 
 <script setup>

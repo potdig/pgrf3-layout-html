@@ -5,7 +5,7 @@
   </header>
   <main>
     <Schedule></Schedule>
-    <Tweet from="right"></Tweet>
+    <Tweet style="width: 960px"></Tweet>
   </main>
   <footer>
     <Footer></Footer>
@@ -26,7 +26,6 @@ import Tweet from './components/Tweet.vue'
 #root {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 header {
@@ -39,11 +38,10 @@ header {
 }
 
 main {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
   align-items: start;
+  gap: 40px;
   padding: 0 64px;
 }
 
@@ -53,5 +51,6 @@ footer {
   justify-content: space-between;
   height: 80px;
   padding: 0 48px;
+  margin-top: auto;
 }
 </style>

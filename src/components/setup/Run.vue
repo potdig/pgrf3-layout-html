@@ -49,6 +49,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 #up-next {
   font-size: 2em;
+  margin-bottom: 12px;
 }
 
 .run {
@@ -70,12 +71,10 @@ const props = defineProps({
 
   &.next {
     font-size: 1.4em;
-    height: 200px;
   }
 
   &.later-than-next {
     font-size: 1.1em;
-    height: 160px;
   }
 }
 
@@ -84,6 +83,8 @@ const props = defineProps({
   font-size: 1.6em;
   font-weight: 600;
   margin-top: -0.2em;
+  white-space: nowrap;
+  overflow-wrap: none;
 }
 
 .info div {

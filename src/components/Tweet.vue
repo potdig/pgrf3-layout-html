@@ -3,7 +3,7 @@
     <div id="tweet-wrapper" :class="wrapperStyle" v-if="tweet">
       <div id="tweet" v-if="tweet">
         <div id="tweet-label" class="label">
-          TWEET WITH <span>#PGRF2</span>:
+          TWEET WITH <span>#PGRF3</span>:
         </div>
         <div class="box">
           <div id="twitter-user">

@@ -15,6 +15,9 @@ const runs = computed(() => store.getters.runsOnSchedule)
 
 <style lang="scss" scoped>
 #schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   text-align: left;
 }
 </style>
