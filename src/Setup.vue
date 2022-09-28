@@ -5,7 +5,9 @@
   </header>
   <main>
     <Schedule style="width: 1440px;"></Schedule>
-    <Tweet style="width: 1080px"></Tweet>
+    <div id="tweet-container" style="height: 150px;">
+      <Tweet from="bottom" style="width: 1600px"></Tweet>
+    </div>
   </main>
   <footer>
     <Footer></Footer>

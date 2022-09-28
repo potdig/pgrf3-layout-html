@@ -2,9 +2,6 @@
   <transition :name="`slide-from-${from}`">
     <div id="tweet-wrapper" :class="wrapperStyle" v-if="tweet">
       <div id="tweet" v-if="tweet">
-        <div id="tweet-label" class="label">
-          TWEET WITH <span>#PGRF3</span>:
-        </div>
         <div class="box">
           <div id="twitter-user">
             <img id="twitter-icon" :src="tweet.icon" alt="icon" />
@@ -41,7 +38,8 @@ const store = useStore()
 const tweet = computed(() => store.getters.tweet)
 const wrapperStyle = computed(() => ({
   'from-left': props.from === 'left',
-  'from-right': props.from === 'right'
+  'from-right': props.from === 'right',
+  'from-bottom': props.from === 'bottom'
 }))
 </script>
 
@@ -57,6 +55,10 @@ $borderStyle: 1px solid rgba($color: white, $alpha: 0);
 
   &.from-right {
     border-right: $borderStyle;
+  }
+
+  &.from-bottom {
+    border-bottom: $borderStyle;
   }
 }
 
@@ -136,6 +138,22 @@ $easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
   }
 }
 
+.slide-from-bottom-enter-active {
+  animation: border $duration $easeOutCirc;
+
+  #tweet {
+    animation: slide-from-bottom $duration $easeOutCirc;
+  }
+}
+
+.slide-from-bottom-leave-active {
+  animation: border $duration $easeOutCirc;
+
+  #tweet {
+    animation: slide-from-bottom reverse $duration $easeInCirc;
+  }
+}
+
 @keyframes slide-from-left {
   0%, 10% {
     transform: translateX(-100%);
@@ -151,6 +169,15 @@ $easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
   }
   90%, 100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes slide-from-bottom {
+  0%, 10% {
+    transform: translateY(100%);
+  }
+  90%, 100% {
+    transform: translateY(0);
   }
 }
 
