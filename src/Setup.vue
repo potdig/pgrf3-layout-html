@@ -20,8 +20,10 @@ import Schedule from './components/setup/Schedule.vue'
 import Tweet from './components/Tweet.vue'
 </script>
 
-<style>
+<style lang="scss">
 @import '/src/stylesheets/common.css';
+$headerHeight: 120px;
+$footerHeight: 80px;
 
 #root {
   display: flex;
@@ -33,15 +35,16 @@ header {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: 120px;
+  height: $headerHeight;
   padding: 0 48px;
 }
 
 main {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: start;
-  gap: 40px;
+  height: 1080px - $headerHeight;
   padding: 0 64px;
 }
 
@@ -49,8 +52,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: $footerHeight;
   padding: 0 48px;
-  margin-top: auto;
 }
 </style>
