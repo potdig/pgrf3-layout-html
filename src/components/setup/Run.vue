@@ -1,13 +1,13 @@
 <template>
   <div class="run" :class="{ 'later-than-next': !upNext }">
-    <p id="up-next" class="label" v-if="upNext">UP NEXT:</p>
-    <div class="time" v-else>{{ run.startsAtOnSchedule() }}~</div>
+    <p id="up-next" class="label" v-if="upNext">UP NEXT</p>
+    <p class="time" v-else>{{ run.startsAtOnSchedule() }}~</p>
     <div
       class="content-box"
       :class="{ next: upNext, 'later-than-next': !upNext }"
       v-if="!run.isSetupBlock()"
     >
-      <div class="title" ref="title"><span>{{ run.title }}</span></div>
+      <div class="title" ref="title">{{ run.title }}</div>
       <div class="info">
         <div class="category">
           <span class="label">Category: </span>{{ run.category }}
@@ -51,13 +51,16 @@ const scaleTitle = () => {
   const timeWidth = 160
   const maxTitleWidth = props.upNext ? scheduleWidth : scheduleWidth - timeWidth 
 
-  const titleTextElement = title.value.firstElementChild
+  const titleTextElement = title.value
   const titleWidth = titleTextElement.getBoundingClientRect()['width']
 
   if (titleWidth > maxTitleWidth) {
     titleTextElement.style.transform = `scale(${maxTitleWidth / titleWidth})`
+    const scaledWidth = titleTextElement.getBoundingClientRect()['width']
+    titleTextElement.parentNode.style.width = `${scaledWidth}px`
   } else {
     titleTextElement.style.transform = ''
+    titleTextElement.parentNode.style.width = ''
   }
 }
 
@@ -67,30 +70,26 @@ onUpdated(scaleTitle)
 </script>
 
 <style lang="scss" scoped>
-$fullWidth: 1440px;
-$timeWidth: 160px;
-
 #up-next {
   font-size: 2em;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+  text-decoration: underline;
 }
 
 .run {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  &.later-than-next {
-    flex-direction: row;
-    align-items: center;
-  }
+  align-items: center;
+  width: fit-content;
 }
 
 .content-box {
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
+    align-items: center;
 
   &.next {
     font-size: 1.4em;
@@ -103,28 +102,22 @@ $timeWidth: 160px;
 
 .title {
   display: block;
+  width: fit-content;
   font-size: 1.6em;
   font-weight: 600;
   margin-top: -0.2em;
   white-space: nowrap;
-  overflow-wrap: none;
-
-  span {
-    display: block;
-    width: fit-content;
-    transform-origin: left;
-  }
 }
 
 .info div {
   display: inline-block;
+  text-align: center;
   margin-right: 1em;
 }
 
 .time {
   display: inline-block;
   font-size: 1.4em;
-  width: $timeWidth;
 }
 
 .setup {

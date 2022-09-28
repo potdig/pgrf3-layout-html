@@ -4,8 +4,8 @@
     <Header></Header>
   </header>
   <main>
-    <Schedule></Schedule>
-    <Tweet style="width: 960px"></Tweet>
+    <Schedule style="width: 1440px;"></Schedule>
+    <Tweet style="width: 1080px"></Tweet>
   </main>
   <footer>
     <Footer></Footer>
@@ -43,7 +43,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: start;
+  align-items: center;
   height: 1080px - $headerHeight;
   padding: 0 64px;
 }

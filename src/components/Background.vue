@@ -51,7 +51,7 @@ const boxCount = ref(60)
   width: 2200px;
   display: flex;
   flex-wrap: wrap;
-  transform: translate(-110px, 60px) rotate(-15deg);
+  transform: translate(-110px, 60px);
   filter: blur(6px);
 }
 
