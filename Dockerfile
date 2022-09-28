@@ -4,7 +4,7 @@ WORKDIR /work
 
 COPY package*.json ./
 
-RUN apk add --no-cache python alpine-sdk &&\
+RUN apk add --no-cache python3 alpine-sdk &&\
     npm install
 
 FROM node:lts-alpine
