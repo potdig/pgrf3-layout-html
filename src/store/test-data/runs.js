@@ -76,7 +76,7 @@ export default [
     ]
   },
   {
-    title: 'わがまま☆フェアリー ミルモでポン! 対戦まほうだま',
+    title: 'SIMPLE2960ともだちシリーズ Vol. 3 THEいつでもパズル ～まっすぐ揃えてストローズ～',
     category: 'Taisen Puzzle-Dama (たいせんモード ノーマル)',
     platform: 'Platform3',
     startsAt: '2021/09/04 12:55:00',

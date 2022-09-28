@@ -7,7 +7,7 @@
       :class="{ next: upNext, 'later-than-next': !upNext }"
       v-if="!run.isSetupBlock()"
     >
-      <span class="title">{{ run.title }}</span>
+      <div class="title" ref="title"><span>{{ run.title }}</span></div>
       <div class="info">
         <div class="category">
           <span class="label">Category: </span>{{ run.category }}
@@ -40,13 +40,36 @@
 </template>
 
 <script setup>
+import { onMounted, onUpdated, ref } from 'vue'
 const props = defineProps({
   run: Object,
   upNext: Boolean
 })
+const title = ref(null)
+const scaleTitle = () => {
+  const scheduleWidth = 1440
+  const timeWidth = 160
+  const maxTitleWidth = props.upNext ? scheduleWidth : scheduleWidth - timeWidth 
+
+  const titleTextElement = title.value.firstElementChild
+  const titleWidth = titleTextElement.getBoundingClientRect()['width']
+
+  if (titleWidth > maxTitleWidth) {
+    titleTextElement.style.transform = `scale(${maxTitleWidth / titleWidth})`
+  } else {
+    titleTextElement.style.transform = ''
+  }
+}
+
+onMounted(scaleTitle)
+onUpdated(scaleTitle)
+
 </script>
 
 <style lang="scss" scoped>
+$fullWidth: 1440px;
+$timeWidth: 160px;
+
 #up-next {
   font-size: 2em;
   margin-bottom: 12px;
@@ -85,6 +108,12 @@ const props = defineProps({
   margin-top: -0.2em;
   white-space: nowrap;
   overflow-wrap: none;
+
+  span {
+    display: block;
+    width: fit-content;
+    transform-origin: left;
+  }
 }
 
 .info div {
@@ -95,7 +124,7 @@ const props = defineProps({
 .time {
   display: inline-block;
   font-size: 1.4em;
-  width: 160px;
+  width: $timeWidth;
 }
 
 .setup {
