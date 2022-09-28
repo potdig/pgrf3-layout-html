@@ -39,7 +39,7 @@ const tweet = computed(() => store.getters.tweet)
 const wrapperStyle = computed(() => ({
   'from-left': props.from === 'left',
   'from-right': props.from === 'right',
-  'from-bottom': props.from === 'bottom'
+  'from-top': props.from === 'top'
 }))
 </script>
 
@@ -57,8 +57,8 @@ $borderStyle: 1px solid rgba($color: white, $alpha: 0);
     border-right: $borderStyle;
   }
 
-  &.from-bottom {
-    border-bottom: $borderStyle;
+  &.from-top {
+    border-top: $borderStyle;
   }
 }
 
@@ -138,19 +138,19 @@ $easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
   }
 }
 
-.slide-from-bottom-enter-active {
+.slide-from-top-enter-active {
   animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-bottom $duration $easeOutCirc;
+    animation: slide-from-top $duration $easeOutCirc;
   }
 }
 
-.slide-from-bottom-leave-active {
+.slide-from-top-leave-active {
   animation: border $duration $easeOutCirc;
 
   #tweet {
-    animation: slide-from-bottom reverse $duration $easeInCirc;
+    animation: slide-from-top reverse $duration $easeInCirc;
   }
 }
 
@@ -172,9 +172,9 @@ $easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
   }
 }
 
-@keyframes slide-from-bottom {
+@keyframes slide-from-top {
   0%, 10% {
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
   90%, 100% {
     transform: translateY(0);
