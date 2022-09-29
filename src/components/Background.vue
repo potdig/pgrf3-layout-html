@@ -1,31 +1,37 @@
 <template>
   <div id="wrapper">
     <div id="filter"></div>
-    <div id="boxes" v-if="animated">
-      <BlinkSquare
-        v-for="i in [...Array(boxCount)].map((_, i) => i)"
-        :key="i"
-      ></BlinkSquare>
-    </div>
-    <div id="boxes" v-else>
-      <Square
-        v-for="i in [...Array(boxCount)].map((_, i) => i)"
-        :key="i"
-        :opacity="Math.random()"
-      ></Square>
+    <div id="shapes">
+      <Triangle v-for="(prop, index) in triangleProps" :key="prop.key" :scale="prop.scale" :top="prop.top"
+        :from="prop.from"></Triangle>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
-import BlinkSquare from './background/BlinkSquare.vue'
-import Square from './background/Square.vue'
+import { ref, defineProps, onMounted } from 'vue'
+import Triangle from './background/Triangle.vue';
 
 const props = defineProps({
   animated: Boolean
 })
-const boxCount = ref(60)
+
+const triangleProps = ref([])
+
+const rand = (min, max) => Math.random() * (max - min) + min
+const addTriangle = () => {
+  triangleProps.value.push({
+    scale: rand(0.2, 0.8),
+    top: rand(-100, 1180),
+    from: rand(0, 1) > 0.5 ? 'left' : 'right',
+    key: new Date().getTime()
+  })
+  setTimeout(() => triangleProps.value.shift(), 10000)
+}
+
+onMounted(() => {
+  setInterval(addTriangle, 200)
+})
 </script>
 
 <style scoped>
@@ -42,10 +48,9 @@ const boxCount = ref(60)
   z-index: -2;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, white 30%, rgba(0, 0, 0, 0));
 }
 
-#boxes {
+#shapes {
   position: relative;
   z-index: -3;
   width: 2200px;
@@ -53,10 +58,5 @@ const boxCount = ref(60)
   flex-wrap: wrap;
   transform: translate(-110px, 60px);
   filter: blur(6px);
-}
-
-p {
-  font-size: 5em;
-  color: lightgray;
 }
 </style>
