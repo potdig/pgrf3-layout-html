@@ -1,6 +1,6 @@
 <template>
   <div class="triangle-container" :class="clazz" :style="style">
-    <div class="triangle"></div>
+    <div class="triangle" :class="{animated}"></div>
   </div>
 </template>
 
@@ -18,16 +18,22 @@ const props = defineProps({
   from: {
     type: String,
     default: 'left'
-  }
+  },
+  animated: Boolean
 })
+
+const rand = (min, max) => Math.random() * (max - min) + min
 
 const clazz = ref({
   'from-right': props.from === 'right',
-  'from-left': props.from === 'left'
+  'from-left': props.from === 'left',
+  'animated': props.animated
 })
 const style = ref({
   top: `${props.top}px`,
-  transform: `scale(${props.scale})`
+  transform: `scale(${props.scale}) rotate(${props.animated ? 0 : rand(0, 360)}deg)`,
+  left: `${props.animated ? -150 : rand(-150, 2070)}px`,
+  opacity: props.animated ? 1.0 : rand(0.1, 0.3)
 })
 
 </script>
@@ -41,11 +47,11 @@ $height: 150px;
 .triangle-container {
   position: absolute;
 
-  &.from-right {
+  &.from-right.animated {
     animation: move-from-right-and-fade cubic-bezier(0.32, 0, 0.67, 0) forwards 10s;
   }
 
-  &.from-left {
+  &.from-left.animated {
     animation: move-from-left-and-fade cubic-bezier(0.32, 0, 0.67, 0) forwards 10s;
   }
 }
@@ -55,8 +61,11 @@ $height: 150px;
   height: $height;
   background: rgba($color: gray, $alpha: 1.0);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  animation: rotate linear forwards 10s;
   transform-origin: calc(#{$width} / 2) calc(#{$height} / 3 * 2);
+
+  &.animated {
+    animation: rotate linear forwards 10s;
+  }
 }
 
 @keyframes rotate {

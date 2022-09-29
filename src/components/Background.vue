@@ -3,7 +3,7 @@
     <div id="filter"></div>
     <div id="shapes">
       <Triangle v-for="(prop, index) in triangleProps" :key="prop.key" :scale="prop.scale" :top="prop.top"
-        :from="prop.from"></Triangle>
+        :from="prop.from" :animated="animated"></Triangle>
     </div>
   </div>
 </template>
@@ -26,11 +26,17 @@ const addTriangle = () => {
     from: rand(0, 1) > 0.5 ? 'left' : 'right',
     key: new Date().getTime()
   })
-  setTimeout(() => triangleProps.value.shift(), 10000)
+  if (props.animated) {
+    setTimeout(() => triangleProps.value.shift(), 10000)
+  }
 }
 
 onMounted(() => {
-  setInterval(addTriangle, 200)
+  if (props.animated) {
+    setInterval(addTriangle, 200)
+  } else {
+    [...Array(100).keys()].forEach(i => addTriangle())
+  }
 })
 </script>
 
