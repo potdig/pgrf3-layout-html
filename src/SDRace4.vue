@@ -1,0 +1,149 @@
+<template>
+  <Background></Background>
+  <header>
+    <Header></Header>
+  </header>
+  <main>
+    <div id="runners">
+      <div class="runner">
+        <Video :style="{ width, height }"></Video>
+        <InfoBox dense label="Runner I">
+          <TextValue
+            :value="runners[0].name"
+            :account="runners[0].currentAccount()"
+          ></TextValue>
+        </InfoBox>
+        <slot name="split1" :runnerId="runners[0].id">
+          <Split :id="runners[0].id"></Split>
+        </slot>
+      </div>
+      <div class="runner">
+        <Video :style="{ width, height }"></Video>
+        <InfoBox dense label="Runner II" v-if="runners[1]">
+          <TextValue
+            :value="runners[1].name"
+            :account="runners[1].currentAccount()"
+          ></TextValue>
+        </InfoBox>
+        <slot name="split2" :runnerId="runners[1].id" v-if="runners[1]">
+          <Split :id="runners[1].id"></Split>
+        </slot>
+      </div>
+    </div>
+    <div id="others">
+      <div id="commentators">
+        <InfoBox dense v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
+          <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
+        </InfoBox>
+      </div>
+      <div id="times">
+        <InfoBox dense time label="EST">
+          <TimeValue :value="est"></TimeValue>
+        </InfoBox>
+        <InfoBox dense time label="Current Time">
+          <TimeValue :value="time" :status="timerStatus"></TimeValue>
+        </InfoBox>
+      </div>
+      <Tweet from="right" small></Tweet>
+    </div>
+  </main>
+  <footer>
+    <Footer></Footer>
+  </footer>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import Background from './components/Background.vue'
+import Header from './components/game/Header.vue'
+import InfoBox from './components/game/InfoBox.vue'
+import TextValue from './components/game/TextValue.vue'
+import TimeValue from './components/game/TimeValue.vue'
+import Split from './components/game/Split.vue'
+import Video from './components/game/Video.vue'
+import Tweet from './components/Tweet.vue'
+import Footer from './components/game/Footer.vue'
+
+const width = ref(`${1920 * 0.4}px`)
+const height = ref(`${1440 * 0.4}px`)
+
+const store = useStore()
+const est = computed(() => store.getters.currentEst)
+const time = computed(() => store.getters.formattedTime)
+const timerStatus = computed(() => store.state.timer.status)
+const runners = computed(() => store.state.runs.currentRunners)
+const commentators = computed(() => store.state.runs.currentCommentators)
+
+onMounted(() => {
+  setInterval(() => {
+    store.dispatch('rotateAccounts')
+  }, 10000)
+})
+</script>
+
+<style lang="scss">
+@import '/src/stylesheets/common.css';
+@import '/src/stylesheets/game.css';
+
+$marginX: 64px;
+
+header {
+  margin: 0 $marginX;
+  padding: 8px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+}
+
+main {
+  flex-grow: 1;
+  margin: 0 $marginX;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#runners {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.runner {
+  display: flex;
+  flex-direction: column;
+}
+
+#others {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 32px;
+  align-items: end;
+}
+
+#commentators{
+  display: grid;
+  width: 480px;
+  grid-template-rows: 1fr 1fr;
+  gap: 2%;
+}
+
+#times {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer {
+  height: 2em;
+  margin: 0 $marginX;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1em;
+  line-height: 1em;
+}
+</style>
