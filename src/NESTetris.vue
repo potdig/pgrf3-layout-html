@@ -1,5 +1,5 @@
 <template>
-  <SDRace>
+  <SDRace2>
     <template #split1="{ runnerId }">
       <div class="score">
         <p><Counter :destination="scoreOf(runnerId)"></Counter>pts.</p>
@@ -10,13 +10,13 @@
         <p><Counter :destination="scoreOf(runnerId)"></Counter>pts.</p>
       </div>
     </template>
-  </SDRace>
+  </SDRace2>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import SDRace from './SDRace.vue'
+import SDRace2 from './SDRace2.vue'
 import Counter from './components/game/Counter.vue'
 
 const store = useStore()
