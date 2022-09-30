@@ -1,5 +1,5 @@
 <template>
-  <div id="hashtag-guide">Hashtag: <span class="hashtag">#PGRF2</span></div>
+  <div id="hashtag-guide">Hashtag: <span class="hashtag">#PGRF3</span></div>
   <div id="next-title" v-if="info">
     <span class="label">Next Title: </span>{{ info.title }} | {{ info.category }}
   </div>
