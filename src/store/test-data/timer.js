@@ -9,6 +9,10 @@ export default {
     {
       id: "team-id-b",
       time: '00:12:34'
-    }
+    },
+    {
+      id: "team-id-c",
+      time: '00:23:45'
+    },
   ]
 }

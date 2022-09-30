@@ -1,50 +1,78 @@
 <template>
   <Background></Background>
   <header>
-    <Header></Header>
+    <Header dense></Header>
   </header>
   <main>
+    <div id="others">
+      <Tweet from="left" small style="margin-bottom: auto"></Tweet>
+      <div id="commentators">
+        <InfoBox v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
+          <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
+        </InfoBox>
+      </div>
+      <div id="times">
+        <InfoBox time label="EST">
+          <TimeValue :value="est"></TimeValue>
+        </InfoBox>
+        <InfoBox time label="Current Time">
+          <TimeValue :value="time" :status="timerStatus"></TimeValue>
+        </InfoBox>
+      </div>
+    </div>
     <div id="runners">
       <div class="runner">
         <Video :style="{ width, height }"></Video>
-        <InfoBox dense label="Runner I">
+        <InfoBox dense>
           <TextValue
+            one-line
             :value="runners[0].name"
             :account="runners[0].currentAccount()"
           ></TextValue>
         </InfoBox>
         <slot name="split1" :runnerId="runners[0].id">
-          <Split :id="runners[0].id"></Split>
+          <Split small :id="runners[0].id"></Split>
         </slot>
       </div>
       <div class="runner">
         <Video :style="{ width, height }"></Video>
-        <InfoBox dense label="Runner II" v-if="runners[1]">
+        <InfoBox dense v-if="runners[1]">
           <TextValue
+            one-line
             :value="runners[1].name"
             :account="runners[1].currentAccount()"
           ></TextValue>
         </InfoBox>
         <slot name="split2" :runnerId="runners[1].id" v-if="runners[1]">
-          <Split :id="runners[1].id"></Split>
+          <Split small :id="runners[1].id"></Split>
         </slot>
       </div>
-    </div>
-    <div id="others">
-      <div id="commentators">
-        <InfoBox dense v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
-          <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
+      <div class="runner">
+        <Video :style="{ width, height }"></Video>
+        <InfoBox dense v-if="runners[2]">
+          <TextValue
+            one-line
+            :value="runners[2].name"
+            :account="runners[2].currentAccount()"
+          ></TextValue>
         </InfoBox>
+        <slot name="split3" :runnerId="runners[2].id" v-if="runners[2]">
+          <Split small :id="runners[2].id"></Split>
+        </slot>
       </div>
-      <div id="times">
-        <InfoBox dense time label="EST">
-          <TimeValue :value="est"></TimeValue>
+      <div class="runner">
+        <Video :style="{ width, height }"></Video>
+        <InfoBox dense v-if="runners[3]">
+          <TextValue
+            one-line
+            :value="runners[3].name"
+            :account="runners[3].currentAccount()"
+          ></TextValue>
         </InfoBox>
-        <InfoBox dense time label="Current Time">
-          <TimeValue :value="time" :status="timerStatus"></TimeValue>
-        </InfoBox>
+        <slot name="split4" :runnerId="runners[3].id" v-if="runners[3]">
+          <Split small :id="runners[3].id"></Split>
+        </slot>
       </div>
-      <Tweet from="right" small></Tweet>
     </div>
   </main>
   <footer>
@@ -65,8 +93,9 @@ import Video from './components/game/Video.vue'
 import Tweet from './components/Tweet.vue'
 import Footer from './components/game/Footer.vue'
 
-const width = ref(`${1920 * 0.4}px`)
-const height = ref(`${1440 * 0.4}px`)
+const scale = 0.28
+const width = ref(`${1920 * scale}px`)
+const height = ref(`${1440 * scale}px`)
 
 const store = useStore()
 const est = computed(() => store.getters.currentEst)
@@ -94,21 +123,24 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 100px;
+  height: 60px;
 }
 
 main {
   flex-grow: 1;
   margin: 0 $marginX;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
+  gap: 32px;
 }
 
 #runners {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  justify-content: center;
+  row-gap: 8px;
+  column-gap: 16px;
 }
 
 .runner {
@@ -117,24 +149,23 @@ main {
 }
 
 #others {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
   align-items: end;
+  width: 400px;
 }
 
 #commentators{
-  display: grid;
-  width: 480px;
-  grid-template-rows: 1fr 1fr;
-  gap: 2%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 #times {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
 footer {
