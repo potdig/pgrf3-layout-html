@@ -1,13 +1,13 @@
 <template>
   <img id="logo" :class="{ dense }" src="/assets/pgrf/images/pgrf2_logo_simple.png" />
   <div id="title" :class="{ dense }">
-    <p id="game-title" :class="{ dense }">{{ info.title }}</p>
+    <div id="game-title" :class="{ dense }" ref="title">{{ info.title }}</div>
     <p id="category-platform">{{ info.category }} - {{ info.platform }}</p>
   </div>
 </template>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, onMounted, onUpdated, ref } from 'vue'
 import { useStore } from 'vuex'
 
 const props = defineProps({
@@ -15,6 +15,26 @@ const props = defineProps({
 })
 const store = useStore()
 const info = computed(() => store.getters.headerInfo)
+
+const title = ref(null)
+const scaleTitle = () => {
+  const maxTitleWidth = 1700
+
+  const titleTextElement = title.value
+  const titleWidth = titleTextElement.getBoundingClientRect()['width']
+
+  if (titleWidth > maxTitleWidth) {
+    titleTextElement.style.transform = `scale(${maxTitleWidth / titleWidth})`
+    const scaledWidth = titleTextElement.getBoundingClientRect()['width']
+    titleTextElement.parentNode.style.width = `${scaledWidth}px`
+  } else {
+    titleTextElement.style.transform = ''
+    titleTextElement.parentNode.style.width = ''
+  }
+}
+
+onMounted(scaleTitle)
+onUpdated(scaleTitle)
 </script>
 
 <style lang="scss" scoped>
@@ -33,16 +53,18 @@ const info = computed(() => store.getters.headerInfo)
     align-items: center;
   }
 
-  p {
+  div, p {
     margin-top: -0.2em;
     margin-bottom: 0;
     line-height: 1.2em;
+    white-space: nowrap;
   }
 }
 
 #game-title {
   font-size: 1.9em;
   font-weight: bolder;
+  transform-origin: left;
 
   &.dense {
     font-size: 1.6em;
