@@ -1,12 +1,13 @@
 <template>
-  <p class="split time">{{ split }}</p>
+  <p class="split time" :class="{ small }">{{ split }}</p>
 </template>
 
 <script setup>
 import { defineProps, computed } from 'vue'
 import { useStore } from 'vuex'
 const props = defineProps({
-  id: Number
+  id: Number,
+  small: Boolean
 })
 
 const store = useStore()
@@ -23,5 +24,9 @@ $height: 1em;
   font-size: 1.4em;
   margin-top: 4px;
   text-align: right;
+  
+  &.small {
+    font-size: 1.2em;
+  }
 }
 </style>
