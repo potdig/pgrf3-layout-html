@@ -24,4 +24,4 @@ npm run dev
 * `http://localhost:3100/graphics/sd-race-2/`
 * `http://localhost:3100/graphics/gb-solo/`
 * `http://localhost:3100/graphics/gba-solo/`
-* `http://localhost:3100/graphics/nes-tetris/`
+* `http://localhost:3100/graphics/score-attack-2/`
