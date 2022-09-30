@@ -16,7 +16,8 @@ export default defineConfig({
         'sd-race-2': resolve(__dirname, 'graphics/sd-race-2/index.html'),
         'gb-solo': resolve(__dirname, 'graphics/gb-solo/index.html'),
         'gba-solo': resolve(__dirname, 'graphics/gba-solo/index.html'),
-        'score-attack-2': resolve(__dirname, 'graphics/gba-solo/index.html')
+        'score-attack-2': resolve(__dirname, 'graphics/score-attack-2/index.html'),
+        'score-attack-4': resolve(__dirname, 'graphics/score-attack-4/index.html')
       },
       external: [
         /assets/
