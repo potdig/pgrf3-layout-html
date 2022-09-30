@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div :class="{ 'one-line' : oneLine }">
     <p class="value">{{ value }}</p>
-    <p class="account">
+    <p class="account" :class="{ 'one-line' : oneLine }">
       <transition name="switch">
         <span v-if="account.twitch">
           <SvgIcon type="mdi" :path="mdiTwitch" size="1.1em" style="top: 0.1em"></SvgIcon>
@@ -30,6 +30,7 @@ import { mdiTwitch, mdiTwitter, mdiYoutube } from '@mdi/js'
 import SvgIcon from '@jamescoyle/vue-icon'
 
 const props = defineProps({
+  oneLine: Boolean,
   value: String,
   account: {
     type: Object,
@@ -45,6 +46,12 @@ $sinWave: cubic-bezier(0.37, 0, 0.63, 1);
 div {
   width: 100%;
   text-align: right;
+
+  &.one-line {
+    display: grid;
+    grid-template-columns: minmax(max-content, max-content) 1fr;
+    align-items: center;
+  }
 }
 
 .value {
@@ -64,6 +71,10 @@ div {
   align-items: center;
   position: relative;
   overflow: hidden;
+
+  &.one-line {
+    width: 100%;
+  }
 
   svg {
     position: relative;
