@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="video"></div>
 </template>
 
 <style lang="scss" scoped>
