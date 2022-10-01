@@ -22,6 +22,16 @@ npm run dev
 * `http://localhost:3100/graphics/hd-race-2/`
 * `http://localhost:3100/graphics/sd-solo/`
 * `http://localhost:3100/graphics/sd-race-2/`
+* `http://localhost:3100/graphics/sd-race-4/`
 * `http://localhost:3100/graphics/gb-solo/`
 * `http://localhost:3100/graphics/gba-solo/`
 * `http://localhost:3100/graphics/score-attack-2/`
+* `http://localhost:3100/graphics/score-attack-4/`
+
+## Tips
+* 下記のカスタム CSS を OBS で設定することで映像配置エリアを完全透明にできます
+  ```css
+  .video {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+  ```
