@@ -12,6 +12,7 @@ export default defineConfig({
         'hd-solo': resolve(__dirname, 'graphics/hd-solo/index.html'),
         'hd-solo-with-cam': resolve(__dirname, 'graphics/hd-solo-with-cam/index.html'),
         'hd-race-2': resolve(__dirname, 'graphics/hd-race-2/index.html'),
+        'hd-race-4': resolve(__dirname, 'graphics/hd-race-4/index.html'),
         'sd-solo': resolve(__dirname, 'graphics/sd-solo/index.html'),
         'sd-race-2': resolve(__dirname, 'graphics/sd-race-2/index.html'),
         'gb-solo': resolve(__dirname, 'graphics/gb-solo/index.html'),
