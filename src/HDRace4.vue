@@ -6,29 +6,27 @@
   <main>
     <div id="others">
       <Tweet from="left" small style="margin-bottom: auto"></Tweet>
-      <div id="commentators">
-        <InfoBox v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
-          <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
-        </InfoBox>
-      </div>
-      <div id="times">
-        <InfoBox time label="EST">
-          <TimeValue :value="est"></TimeValue>
-        </InfoBox>
-        <InfoBox time label="Current Time">
-          <TimeValue :value="time" :status="timerStatus"></TimeValue>
-        </InfoBox>
+      <div id="info">
+        <div id="commentators">
+          <InfoBox v-for="( commentator, index ) in commentators" :key="index" label="Commentator">
+            <TextValue :value="commentator.name" :account="commentator.currentAccount()"></TextValue>
+          </InfoBox>
+        </div>
+        <div id="times">
+          <InfoBox time label="EST">
+            <TimeValue :value="est"></TimeValue>
+          </InfoBox>
+          <InfoBox time label="Current Time">
+            <TimeValue :value="time" :status="timerStatus"></TimeValue>
+          </InfoBox>
+        </div>
       </div>
     </div>
     <div id="runners">
       <div class="runner">
         <Video :style="{ width, height }"></Video>
         <InfoBox dense>
-          <TextValue
-            one-line
-            :value="runners[0].name"
-            :account="runners[0].currentAccount()"
-          ></TextValue>
+          <TextValue one-line :value="runners[0].name" :account="runners[0].currentAccount()"></TextValue>
         </InfoBox>
         <slot name="split1" :runnerId="runners[0].id">
           <Split small :id="runners[0].id"></Split>
@@ -37,11 +35,7 @@
       <div class="runner">
         <Video :style="{ width, height }"></Video>
         <InfoBox dense v-if="runners[1]">
-          <TextValue
-            one-line
-            :value="runners[1].name"
-            :account="runners[1].currentAccount()"
-          ></TextValue>
+          <TextValue one-line :value="runners[1].name" :account="runners[1].currentAccount()"></TextValue>
         </InfoBox>
         <slot name="split2" :runnerId="runners[1].id" v-if="runners[1]">
           <Split small :id="runners[1].id"></Split>
@@ -50,11 +44,7 @@
       <div class="runner">
         <Video :style="{ width, height }"></Video>
         <InfoBox dense v-if="runners[2]">
-          <TextValue
-            one-line
-            :value="runners[2].name"
-            :account="runners[2].currentAccount()"
-          ></TextValue>
+          <TextValue one-line :value="runners[2].name" :account="runners[2].currentAccount()"></TextValue>
         </InfoBox>
         <slot name="split3" :runnerId="runners[2].id" v-if="runners[2]">
           <Split small :id="runners[2].id"></Split>
@@ -63,11 +53,7 @@
       <div class="runner">
         <Video :style="{ width, height }"></Video>
         <InfoBox dense v-if="runners[3]">
-          <TextValue
-            one-line
-            :value="runners[3].name"
-            :account="runners[3].currentAccount()"
-          ></TextValue>
+          <TextValue one-line :value="runners[3].name" :account="runners[3].currentAccount()"></TextValue>
         </InfoBox>
         <slot name="split4" :runnerId="runners[3].id" v-if="runners[3]">
           <Split small :id="runners[3].id"></Split>
@@ -155,7 +141,12 @@ main {
   width: 320px;
 }
 
-#commentators{
+#info {
+  width: 100%;
+  margin-top: auto;
+}
+
+#commentators {
   display: flex;
   flex-direction: column;
   width: 100%;
